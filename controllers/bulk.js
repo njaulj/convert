@@ -138,8 +138,8 @@ part='EL'
 break
 }
 case 'UNION':{
-group='PV'
-part='VG'
+group='PJ'
+part='EL'
 break
 }
 case 'BRANCH':{
