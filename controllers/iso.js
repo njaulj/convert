@@ -12,8 +12,8 @@ exports.convert = function(req,res){
     }else{
        var tmpPath = req.files.file.path
        var fileName =req.files.file.name
-        var targetPath = '/Users/liujun/coding/spm/public/uploads/isos/'+fileName
-        var conPath = '/Users/liujun/coding/spm/public/converted/isos/'+fileName
+        var targetPath = '/root/convert/public/uploads/isos/'+fileName
+        var conPath = '/root/convert/public/converted/isos/'+fileName
 
 
         fs.rename(tmpPath, targetPath , function(err) {
@@ -54,6 +54,7 @@ fs.appendFile('iso_error.txt',arr,'utf-8',function(err,data){
   var a = _line.split(',')
   var b =[]
   var c=[]
+ if(a[0]){
      if(lineNumber==0){
      c =[
     'SOURCETYPE',
@@ -131,6 +132,11 @@ break
 case 'FLANGE':{
 group='PF'
 part='FP'
+break
+}
+case 'UNION':{
+group='PV'
+part='VG'
 break
 }
 case 'PIPING':{
@@ -362,7 +368,7 @@ b.push('\r')
   })
 //console.log(b)
 
-
+}
 lineNumber++
 }).on('end', function() {
 res.render('iso',{

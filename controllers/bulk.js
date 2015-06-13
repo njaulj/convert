@@ -12,8 +12,8 @@ exports.convert = function(req,res){
     }else{
        var tmpPath = req.files.file.path
        var fileName =req.files.file.name
-        var targetPath = '/Users/liujun/coding/spm/public/uploads/bulks/'+fileName
-        var conPath = '/Users/liujun/coding/spm/public/converted/bulks/'+fileName
+        var targetPath = '/root/convert/public/uploads/bulks/'+fileName
+        var conPath = '/root/convert/public/converted/bulks/'+fileName
 
         fs.rename(tmpPath, targetPath , function(err) {
             if (err) {
@@ -55,6 +55,7 @@ fs.appendFile('bulk_error.txt',arr,'utf-8',function(err,data){
   var a = _line.split(',')
   var b =[]
  // console.log(lineNumber)
+ if(a[0]){
 if(lineNumber==0){
     b =[
     'SOURCETYPE',
@@ -134,6 +135,11 @@ break
 case 'ELBOW':{
 group='PJ'
 part='EL'
+break
+}
+case 'UNION':{
+group='PV'
+part='VG'
 break
 }
 case 'BRANCH':{
@@ -349,7 +355,7 @@ if(lineNumber==1){
         console.log(err);  
     }  
   })
-
+}
 lineNumber++
 }).on('end', function() {
   res.render('bulk',{
