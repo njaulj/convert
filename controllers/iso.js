@@ -134,6 +134,21 @@ group='PF'
 part='FP'
 break
 }
+case '350NB':{
+group='PM'
+part='SY'
+break
+}
+case 'SPRING':{
+group='PM'
+part='SY'
+break
+}
+case 'NON-METALLIC':{
+group='PM'
+part='SY'
+break
+}
 case 'UNION':{
 group='PJ'
 part='EL'
