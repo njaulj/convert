@@ -104,7 +104,7 @@ if(lineNumber==0){
 
   var group
   var part
-  var _group=a[21].substring(0,a[21].indexOf(' '))
+  var _group=(a[21].indexOf(' ')>0)?a[21].substring(0,a[21].indexOf(' ')):a[21]
   switch(_group){
 
   case 'PIPE':
@@ -213,6 +213,11 @@ part='GP'
 break
 }
 case 'STUDBOLT':{
+group='PL'
+part='LM'
+break
+}
+case 'STUD':{
 group='PL'
 part='LM'
 break
